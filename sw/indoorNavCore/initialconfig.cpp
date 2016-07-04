@@ -13,18 +13,17 @@
 #define TESTMAC3 "00:00:00:00:00:02"
 #define TESTMAC4 "00:00:00:00:00:03"
 
-#
+
 
 //For Wifi card
 tBeaconResources beaconResources[] =
 {
     /*MAC                       LATITUDE/X      LONGITUDE/Y         HEIGHT/Z    FilterType                  PAR1(windowSize)    referenceDistance       referencePower*/
-
     //for wifi card (laptop)
-    {WIFI_BEACON1_MAC,        4.1,              1.6,                1,          { eFiltertypes::median,     5},                 1,                      -25},
-    {WIFI_BEACON2_MAC,        10,               4.2,                0,          { eFiltertypes::median,     5},                 1,                      -25},
-    {WIFI_BEACON3_MAC,        4.6,              15,                 -1,          { eFiltertypes::median,    5},                 1,                      -25},
-    {WIFI_UAVHOST_MAC,        3.1,              1.1,                0,          { eFiltertypes::median,     5},                 1,                      -28},
+    {WIFI_BEACON1_MAC,        4.1,              1.6,                0,          { eFiltertypes::median,     10},                 1,                      -30.7},
+    {WIFI_BEACON2_MAC,        10,               4.2,                0,          { eFiltertypes::median,     10},                 1,                      -30},
+    {WIFI_BEACON3_MAC,        4.6,              15,                 0.5,         { eFiltertypes::median,     10},                 1,                      -30},
+    {WIFI_UAVHOST_MAC,        3.1,              1.1,                0,          { eFiltertypes::median,     10},                 1,                      -28},
 
     //for ASUS antenna
 //    {WIFI_BEACON1_MAC,        1.4,                4.61,           0,          { eFiltertypes::median,     3},                 1,                      98},

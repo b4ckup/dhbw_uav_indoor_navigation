@@ -97,7 +97,7 @@ apl_error_code cLeastSquareTriangulator::calculatePosition(tPositionSolution &so
 
                     dy(num) = currentSignalParameter->getRange() - distance_to_beacon;
 
-                    cout<<"range["<<num<<"]="<<currentSignalParameter->getRange()<<endl;  //Debug output
+//                    cout<<"range["<<num<<"]="<<currentSignalParameter->getRange()<<endl;  //Debug output
                     //cout<<"distance="<<distance_to_sat<<endl<<"dy="<<endl<<dy<<endl;      //Debug output
 
                     for(i = 0; i < 3; i++)

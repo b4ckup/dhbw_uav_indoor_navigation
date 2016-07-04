@@ -8,6 +8,10 @@ cLevenbergMarquartTriangulator::cLevenbergMarquartTriangulator(double updateInte
 apl_error_code cLevenbergMarquartTriangulator::calculatePosition(tPositionSolution &solution)
 {
     Eigen::MatrixXd H(beaconNumber, 3);
+    Eigen::VectorXd position(3);
+    H.setZero(beaconNumber,3);
+    position.setZero(3,1);
+
     if(beaconNumber < 3)
     {
         cout<<"-> WARNING <- cTriangulator::cTriangulator(): beaconNumber < 3 --> no position calculation possible"<<endl;
@@ -45,7 +49,7 @@ apl_error_code cLevenbergMarquartTriangulator::calculatePosition(tPositionSoluti
 
             MyFunctor functor(rads);
             Eigen::LevenbergMarquardt<MyFunctor, double> lm(functor);
-            Eigen::VectorXd position(3);
+
             position(0) = startPosition(0);
             position(1) = startPosition(1);
             position(2) = startPosition(2);
@@ -81,8 +85,7 @@ apl_error_code cLevenbergMarquartTriangulator::calculatePosition(tPositionSoluti
         }
         else
         {
-            solution.validity = false;
-            solution.position.setZero(3, 1);
+            solution = createPositionSolution(position, false, beaconNumber, 0, H);
             cout<<"-> INFO <- cTriangulator::calculatePosition(): Parameters contained one or more NULL pointers, which means one or more cFilter classes didn't have values"<<endl;
         }
 

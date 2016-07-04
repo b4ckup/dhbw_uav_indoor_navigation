@@ -17,12 +17,14 @@
 //Switch MACROS
 #define USE_LEASTSQUARE             false                       //enable least square with gauß-newton (atm only either lsq or lem supported)
 #define USE_LEVENBERG_MARQUARDT     true                        //enable levenberg marquardt triangulator (atm only either lsq or lem supported)
-#define BEAGLE_BONE_BUILD           true                        //enable this if you build a release for the beagle bone (this will enable output throug tty)
+#define USE_VISUALPROTOCOL          true                        //enables cVisualProtocolDriver to get data over TCP/IP to positionVisualizationGui (this will disable TTY output atm though)
+#define USE_NMEA_TTY_OUTPUT         false                       //this will enable output through the dev specified in PROTOCOL_TTY (see below)
 #define FILTER_LOGS_ENABLED         false                       //set true to enable logging for the filterLayer
 #define TRIANGULATOR_LOG_ENABLED    true                        //set true to enable logging of calculated positions
 #define TRIANGULATOR_STDOUT_POS     true                        //set if Triangulator should cout position
-#define USE_XYZ_COORDINATES         false                       //set this false to use actual lla coordinate input and ouput, the xyz mode is for testing and debuggin
+#define USE_XYZ_COORDINATES         true                        //set this false to use actual lla coordinate input and ouput, the xyz mode is for testing and debuggin
 //Config Macros
+#define VISUAL_PROT_PORT            34567
 #define PROTOCOL_TTY                "/dev/tty01"                //device to output protocol messages
 #define LOGDIR                      "./logs/"                   //directory where logs are stored
 #define TRIANGULATOR_MAX_ITERATIONS 100                         //max iterations for cTriangulators

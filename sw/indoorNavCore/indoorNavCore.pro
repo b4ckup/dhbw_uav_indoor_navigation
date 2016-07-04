@@ -1,4 +1,4 @@
-QT += core
+QT += core network
 QT -= gui
 
 CONFIG += c++11 static
@@ -8,9 +8,9 @@ CONFIG += console
 CONFIG -= app_bundle
 
 
-LIBS += /home/uli/x-tools/arm-cortex_a8-linux-gnueabi/arm-cortex_a8-linux-gnueabi/sysroot/lib/libGeographic.a #FOR ARM BUILD
+#LIBS += /home/uli/x-tools/arm-cortex_a8-linux-gnueabi/arm-cortex_a8-linux-gnueabi/sysroot/lib/libGeographic.a #FOR ARM BUILD
 
-#LIBS += /usr/local/lib/libGeographic.a  #FOR HOST BUILD
+LIBS += /usr/local/lib/libGeographic.a  #FOR HOST BUILD
 
 TEMPLATE = app
 
@@ -31,7 +31,8 @@ SOURCES += \
     HAL/cprotocoldriver.cpp \
     HAL/cnmeaprotocoldriver.cpp \
     APL/ctriangulator.cpp \
-    APL/clevenbergmarquarttriangulator.cpp
+    APL/clevenbergmarquarttriangulator.cpp \
+    HAL/cpositionvisualprotocol.cpp
 
 HEADERS += \
     initialconfig.h \
@@ -50,5 +51,6 @@ HEADERS += \
     HAL/cprotocoldriver.h \
     HAL/cnmeaprotocoldriver.h \
     APL/ctriangulator.h \
-    APL/clevenbergmarquarttriangulator.h
+    APL/clevenbergmarquarttriangulator.h \
+    HAL/cpositionvisualprotocol.h
 

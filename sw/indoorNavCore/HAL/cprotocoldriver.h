@@ -12,7 +12,7 @@ protected:
     int ttyFileDescriptor;
     bool opened;
 public:
-    cProtocolDriver(QString device);
+    cProtocolDriver();
     virtual ~cProtocolDriver();
     virtual bool writePositionToFlightCtrl(tPositionSolution) = 0;
 };

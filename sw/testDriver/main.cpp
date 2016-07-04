@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    cTestDriver testDriver(500, "linearTrajectory.csv", 3);
+    cTestDriver testDriver(500, "linearTrajectory.csv", 0.3);
     testDriver.start();
 
     return a.exec();

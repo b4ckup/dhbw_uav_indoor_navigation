@@ -14,6 +14,7 @@ class cNmeaProtocolDriver : public cProtocolDriver
 {
 public:
     cNmeaProtocolDriver(QString device);
+    ~cNmeaProtocolDriver();
     QString buildGGAsentence(tPositionSolution solution);
     QString buildVTGsentence(tPositionSolution solution);
     QString buildRMCsentence(tPositionSolution solution);

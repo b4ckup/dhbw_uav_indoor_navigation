@@ -4,6 +4,7 @@
 #include <QThread>
 #include "HAL/cprotocoldriver.h"
 #include "HAL/cnmeaprotocoldriver.h"
+#include "HAL/cpositionvisualprotocol.h"
 #include "FPL/cfiltercontrol.h"
 #include "APL/cleastsquaretriangulator.h"
 #include "APL/clevenbergmarquarttriangulator.h"

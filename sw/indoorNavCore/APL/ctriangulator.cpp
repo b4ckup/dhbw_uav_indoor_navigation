@@ -87,15 +87,15 @@ void cTriangulator::on_timer_timeout()
         clearParameters();
     }
 
-    if(solution.validity)
-    {
+//    if(solution.validity)
+//    {
         lastSolution = solution;
         protocol->writePositionToFlightCtrl(solution);
-    }
-    else
-    {
-        cout<<"-> WARNING <- cTriangulator::on_timer_timeout(): Calculated solution is invalid"<<endl;
-    }
+//    }
+//    else
+//    {
+//        cout<<"-> WARNING <- cTriangulator::on_timer_timeout(): Calculated solution is invalid"<<endl;
+//    }
 #if(TRIANGULATOR_STDOUT_POS == true)
     cout<<"The estimated position is:"<<endl<<solution.position<<endl;
 #endif
@@ -194,7 +194,7 @@ tPositionSolution cTriangulator::createPositionSolution(Eigen::Matrix<double,3 ,
     solution.position(1)    = position(1);
     solution.position(2)    = position(2);
     calculateDOPs(H, solution);
-    solution.gpstime        = parameters[0]->getTime();
+    solution.gpstime        = gpstime;
     solution.validity       = valid;
     solution.beaconNumber   = beaconNumber;
     solution.trackAngle     = getTrackAngle(position);

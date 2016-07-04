@@ -81,6 +81,8 @@ bool cLog::openLog(QString pathToLog)
     if(!logFile->open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
     {
         cout<<"-> ERROR <- cLog::openLog() reported an Error opening the log file\n ErrorString: "<<logFile->errorString().toStdString()<<"\n Note that no log file is open right now!"<<endl;
+        logFile = NULL;
+        logStream = NULL;
         return false;
     }
     else
@@ -109,5 +111,8 @@ void cLog::closeLog()
 
 void cLog::flush()
 {
-    logStream->flush();
+    if(logStream != NULL)
+    {
+        logStream->flush();
+    }
 }

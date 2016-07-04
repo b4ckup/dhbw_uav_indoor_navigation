@@ -26,7 +26,12 @@ void cApplicationThread::run()
     filterControl->initFilters();
 
     //Set up protocolDriver in HAL
+
+#if(USE_VISUALPROTOCOL == true)
+    protocolDriver = new cPositionVisualProtocol(VISUAL_PROT_PORT);
+#else
     protocolDriver = new cNmeaProtocolDriver(PROTOCOL_TTY);
+#endif
 
     //Set up Application Layer
 
@@ -41,6 +46,7 @@ void cApplicationThread::run()
     exec();
 
     delete filterControl;
+    delete protocolDriver;
 #if(USE_LEVENBERG_MARQUARDT==true)
     delete lemTriang;
 #elif(USE_LEASTSQUARE == true)
